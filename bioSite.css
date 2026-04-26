@@ -1,0 +1,430 @@
+/*
+Assignment: bioSite Project
+Original Author: Wade Eckert
+Professor: Dr. Mortoza Abdullah
+Date: April 26, 2026
+Description:
+*/
+
+/* Base styling for the site for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #F5F1E8;
+    color: #333333;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Generic layout helper styling */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+/* Styling for the typography */
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    color: #2F4F4F;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+/* Styling for the navigation */
+header {
+    background-color: #F5F1E8;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Styling for the navbar with flexbox for horizontal layout and spacing */
+.navbar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2F4F4F;
+    letter-spacing: 1px;
+}
+
+/* Styling for the navigation links with an animated underline effect on hover */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+/* Animated underline */
+.nav-links a:not(.external-link)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #C97C5D;
+    transition: width 0.3s ease;
+}
+
+.nav-links .external-link {
+    border: 2px solid #2F4F4F;
+    padding: 8px 14px;
+    border-radius: 3px;
+}
+
+.nav-links .external-link:hover {
+    background-color: #2F4F4F;
+    color: #F5F1E8;
+}
+
+.nav-links a:not(.external-link):hover::after {
+    width: 100%;
+}
+
+/* Styling for the hero section of the landing page */
+.hero {
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Adding a dark overlay to the hero image for better text readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+    position: relative;
+    color: #F5F1E8;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    color: #F5F1E8;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+/* Accent line styling for visual separation */
+.accent-line {
+    width: 300px;
+    height: 2px;
+    background-color: #C97C5D;
+    margin: 16px 0;
+}
+
+/* Styling for call to action/buttons */
+.cta-link {
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #2F4F4F;
+    color: #F5F1E8;
+    padding: 12px 22px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.cta-link:hover {
+    background-color: #C97C5D;
+}
+
+/* Styling for the intro section */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Styling for the portrait frame in the intro section */
+.portrait-frame {
+    justify-self: center;
+    width: 260px;
+    background-color: #2F4F4F;
+    padding: 0 14px 14px 0;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the portrait image with a slight offset to create a layered effect */
+.portrait-frame img {
+    width: 260px;
+    height: auto;
+    border-radius: 8px;
+    transform: translate(-14px, -14px);
+}
+
+/* Adding a subtle zoom and shadow effect on hover for the portrait frame */
+.portrait-frame:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.26);
+}
+
+.intro-text h2 {
+    margin-bottom: 14px;
+}
+
+/* Styling for the image cards */
+.card-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 35px;
+    font-family: "Playfair Display", serif;
+}
+
+/* Left + right lines */
+.card-section-title::before,
+.card-section-title::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #C97C5D;
+    max-width: 300px;
+}
+
+/* Using CSS Grid to create a responsive card layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+ 
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+    text-align: center;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+}
+
+/* Styling for the page header sections */
+.page-header {
+    background-color: #2F4F4F; /* green */
+    padding: 30px 0 30px;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: #F5F1E8;
+}
+
+.page-header .accent-line {
+    margin: 18px auto 0;
+    background-color: #C97C5D;
+}
+
+/* Specific styling for the About page */
+.centered-line {
+    margin: 18px auto 0;
+}
+
+.about-section {
+    padding-top: 25px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.26);
+}
+
+.about-text {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.about-text h2 {
+    margin-bottom: 18px;
+}
+
+/* Specific styling for the Hobbies page, alternating layout story blocks */
+.story-block {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 45px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Reversing the layout for alternating story blocks */
+.story-block.reverse {
+    grid-template-columns: 1.3fr 1fr;
+}
+
+/* Adjusting the order of the image and text for reversed story blocks */
+.story-block.reverse .story-image {
+    order: 2;
+}
+
+/* Ensuring the text content is ordered correctly in reversed story blocks */
+.story-block.reverse .story-text {
+    order: 1;
+}
+
+.story-image img {
+    border-radius: 8px;
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Adding a subtle zoom and shadow effect on hover for the story images */
+.story-image img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.26);
+}
+
+/* Styling for the quote sections */
+.quote-section {
+    background-color: #2F4F4F;
+    color: #F5F1E8;
+    text-align: center;
+    padding: 10px 10px; 
+    position: relative;
+}
+
+/* Centered accent line */
+.quote-section::after {
+    content: "";
+    display: block;
+    width: 300px;
+    height: 2px;
+    background-color: #C97C5D;
+    margin: 10px auto 0 auto;
+}
+
+.quote-section p {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+/* Styling for the footer sections */
+footer {
+    background-color: #2F4F4F;
+    color: #F5F1E8;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+}
+
+footer a {
+    color: #F5F1E8;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: #A3B18A;
+}
