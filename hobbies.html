@@ -16,19 +16,21 @@ and writing stories, each accompanied by relevant images.
         <meta name="description" content="Explore the hobbies and personal interests of Leigh Barerra, including her love for cooking, mountain drives, art museums, and writing stories. Discover how these passions influence her creativity and work as a front-end developer and graphic designer.">
         <meta name="author" content="Wade Eckert">
         <link href="bioSite.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="Images/favicon.png">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@400;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
-        <title></title>
+        <title>Hobbies & Interests | Leigh Barerra</title>
     </head>
     <body>
     <header> <!-- Header with navigation bar start-->
         <nav class="navbar container"> <!-- Navigation bar with logo and links start-->
-            <div class="logo">LEIGH BARERRA</div>
+            <a href="index.html" class="logo">LEIGH BARERRA</a>
 
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="hobbies.html">Hobbies</a></li>
-                <li><a class="external-link" href="https://www.linkedin.com/in/leigh-m-barrera?trk=people-guest_people_search-card" target="_blank">LinkedIn</a></li>
+                <li><a class="active" href="hobbies.html">Hobbies</a></li>
+                <li><a class="external-link" href="https://www.linkedin.com/in/leigh-m-barrera?trk=people-guest_people_search-card" target="_blank" aria-label="Visit Leigh Barerra's LinkedIn profile">LinkedIn</a></li>
             </ul>
         </nav> <!-- Navigation bar end-->
     </header> <!-- Header with navigation bar end-->
@@ -129,9 +131,19 @@ and writing stories, each accompanied by relevant images.
         </section> <!-- Inspirational quote section end -->
         <p>
             &copy; 2026 Leigh Barerra |
-            <a href="https://www.linkedin.com/in/leigh-m-barrera?trk=people-guest_people_search-card" target="_blank">Connect on LinkedIn |</a>
-            <a href="https://wadeeckert.github.io/CSD-340/" target="_blank">Wade Eckert's GitHub Pages</a>
+            <a href="https://www.linkedin.com/in/leigh-m-barrera?trk=people-guest_people_search-card" target="_blank" aria-label="Visit Leigh Barerra's LinkedIn profile">Connect on LinkedIn |</a>
+            <a href="https://wadeeckert.github.io/CSD-340/" target="_blank" aria-label="Visit Wade Eckert's GitHub Pages">Wade Eckert's GitHub Pages</a>
         </p>
     </footer> <!-- Footer end -->
+
+    <!-- JavaScript for mobile menu toggle on responsive screens -->
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
 </body>
 </html>
